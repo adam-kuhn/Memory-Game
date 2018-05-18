@@ -1,7 +1,7 @@
-export const EXAMPLE = 'EXAMPLE'
+export const SHOW_GAME = 'SHOW_GAME'
 
-export const example = () => {
+export const startGame = () => {
   return {
-    type: EXAMPLE
+    type: SHOW_GAME
   }
 }

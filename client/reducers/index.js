@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux'
 
-import generic from './generic'
+import display from './display'
 
 export default combineReducers({
-  generic
+  display
 })
