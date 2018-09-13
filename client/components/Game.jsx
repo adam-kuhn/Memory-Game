@@ -1,25 +1,27 @@
 import React from 'react'
-import {connect} from 'react-redux'
 
-function Game (props) {
-  return (
-    <div>
-      <h3>This will be a game </h3>
-      {props.game.map(box => {
-        return (
-          <button key={box.id} id={box.id} value={box.value}>
-        Value: {box.value}</button>
-        )
-      })}
-    </div>
+import gameboard from '../lib/gameboard'
 
-  )
-}
-
-const mapStateToProps = (state) => {
-  return {
-    game: state.game.game
+class Game extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      gameboard
+    }
+  }
+  render () {
+    return (
+      <div>
+        <h3>This will be a game </h3>
+        {this.state.gameboard.map(box => {
+          return (
+            <button key={box.id} id={box.id} value={box.value}>
+          Value: {box.value}</button>
+          )
+        })}
+      </div>
+    )
   }
 }
 
-export default connect(mapStateToProps)(Game)
+export default Game
