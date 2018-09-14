@@ -6,7 +6,27 @@ class Game extends React.Component {
   constructor () {
     super()
     this.state = {
-      gameboard
+      gameboard,
+      clickCount: 0,
+      valueToMatch: 0
+    }
+    this.handleClick = this.handleClick.bind(this)
+  }
+  handleClick (e) {
+    const {id, value} = e.target
+    const currentClick = this.state.clickCount + 1
+    let gameboard = this.state.gameboard
+    if (currentClick === 1) {
+      for (let card of gameboard) {
+        if (card.id === Number(id)) {
+          card.visible = true
+        }
+      }
+      this.setState({
+        ...this.state,
+        gameboard,
+        valueToMatch: value
+      })
     }
   }
   render () {
@@ -17,14 +37,14 @@ class Game extends React.Component {
           if (box.visible) {
             return (
               <button key={box.id} id={box.id} value={box.value}
-                className='visible'>
+                className='visible' onClick={this.handleClick}>
                 Value: {box.value}
               </button>
             )
           }
           return (
             <button key={box.id} id={box.id} value={box.value}
-              className='hidden'>
+              className='hidden' onClick={this.handleClick}>
               Placeholder
             </button>
           )
