@@ -9,7 +9,7 @@ function display (state = initialState, action) {
   switch (action.type) {
     case (SHOW_GAME): {
       return {
-        landing: false,
+        ...state,
         game: true
       }
     }
