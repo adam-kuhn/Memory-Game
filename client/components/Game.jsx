@@ -25,7 +25,38 @@ class Game extends React.Component {
       this.setState({
         ...this.state,
         gameboard,
+        clickCount: currentClick,
         valueToMatch: value
+      })
+    } else if (currentClick === 2) {
+      for (let card of gameboard) {
+        if (card.id === Number(id)) {
+          card.visible = true
+        }
+        if (value === this.state.valueToMatch) {
+          for (let card of gameboard) {
+            if (card.visible) {
+              card.matched = true
+            }
+          }
+        }
+      }
+      this.setState({
+        ...this.state,
+        gameboard,
+        clickCount: currentClick,
+        valueToMatch: 0
+      })
+    } else {
+      for (let card of gameboard) {
+        if (!card.matched) {
+          card.visible = false
+        }
+      }
+      this.setState({
+        ...this.state,
+        gameboard,
+        clickCount: 0
       })
     }
   }
