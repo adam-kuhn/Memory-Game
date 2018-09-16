@@ -1,6 +1,9 @@
 import React from 'react'
+import _ from 'lodash'
 
 import gameboard from '../lib/gameboard'
+
+_.shuffle(gameboard)
 
 class Game extends React.Component {
   constructor () {
@@ -11,6 +14,13 @@ class Game extends React.Component {
       valueToMatch: 0
     }
     this.handleClick = this.handleClick.bind(this)
+  }
+
+  componentDidMount () {
+    const randomizedBoard = _.shuffle(this.state.gameboard)
+    this.setState({
+      gameboard: randomizedBoard
+    })
   }
   handleClick (e) {
     const {id, value} = e.target
