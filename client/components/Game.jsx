@@ -60,7 +60,8 @@ class Game extends React.Component {
           if (box.visible) {
             return (
               <button key={box.id} id={box.id} value={box.value}
-                className='visible' onClick={this.handleClick}>
+                className='visible' onClick={this.handleClick}
+                disabled={true}>
                 Value: {box.value}
               </button>
             )
