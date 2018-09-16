@@ -18,6 +18,9 @@ class Game extends React.Component {
     let gameboard = this.state.gameboard
     if (currentClick === 1) {
       for (let card of gameboard) {
+        if (!card.matched) {
+          card.visible = false
+        }
         if (card.id === Number(id)) {
           card.visible = true
         }
@@ -28,7 +31,7 @@ class Game extends React.Component {
         clickCount: currentClick,
         valueToMatch: value
       })
-    } else if (currentClick === 2) {
+    } else {
       for (let card of gameboard) {
         if (card.id === Number(id)) {
           card.visible = true
@@ -44,19 +47,8 @@ class Game extends React.Component {
       this.setState({
         ...this.state,
         gameboard,
-        clickCount: currentClick,
+        clickCount: 0,
         valueToMatch: 0
-      })
-    } else {
-      for (let card of gameboard) {
-        if (!card.matched) {
-          card.visible = false
-        }
-      }
-      this.setState({
-        ...this.state,
-        gameboard,
-        clickCount: 0
       })
     }
   }
@@ -68,7 +60,8 @@ class Game extends React.Component {
           if (box.visible) {
             return (
               <button key={box.id} id={box.id} value={box.value}
-                className='visible' onClick={this.handleClick}>
+                className='visible' onClick={this.handleClick}
+                disabled={true}>
                 Value: {box.value}
               </button>
             )
