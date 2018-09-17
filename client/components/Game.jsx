@@ -1,26 +1,17 @@
 import React from 'react'
-import _ from 'lodash'
 
-import gameboard from '../lib/gameboard'
-
-_.shuffle(gameboard)
+import StartGame from './StartGame'
 
 class Game extends React.Component {
   constructor () {
     super()
     this.state = {
-      gameboard,
+      gameboard: [],
       clickCount: 0,
       valueToMatch: 0
     }
     this.handleClick = this.handleClick.bind(this)
-  }
-
-  componentDidMount () {
-    const randomizedBoard = _.shuffle(this.state.gameboard)
-    this.setState({
-      gameboard: randomizedBoard
-    })
+    this.startGame = this.startGame.bind(this)
   }
   handleClick (e) {
     const {id, value} = e.target
@@ -62,10 +53,19 @@ class Game extends React.Component {
       })
     }
   }
+
+  startGame (board) {
+    this.setState({
+      gameboard: board,
+      clickCount: 0,
+      valueToMatch: 0
+    })
+  }
+
   render () {
     return (
       <div>
-        <h3>This will be a game </h3>
+        <StartGame startGame={this.startGame}/>
         {this.state.gameboard.map(box => {
           if (box.visible) {
             return (
