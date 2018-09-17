@@ -8,7 +8,8 @@ class Game extends React.Component {
     this.state = {
       gameboard: [],
       clickCount: 0,
-      valueToMatch: 0
+      valueToMatch: 0,
+      gameWon: false
     }
     this.handleClick = this.handleClick.bind(this)
     this.startGame = this.startGame.bind(this)
@@ -33,6 +34,8 @@ class Game extends React.Component {
         valueToMatch: value
       })
     } else {
+      let cardsMatched = 0
+      let gameWon = this.state.gameWon
       for (let card of gameboard) {
         if (card.id === Number(id)) {
           card.visible = true
@@ -44,12 +47,19 @@ class Game extends React.Component {
             }
           }
         }
+        if (card.matched) {
+          cardsMatched++
+        }
+        if (cardsMatched === gameboard.length) {
+          gameWon = true
+        }
       }
       this.setState({
         ...this.state,
         gameboard,
         clickCount: 0,
-        valueToMatch: 0
+        valueToMatch: 0,
+        gameWon
       })
     }
   }
@@ -58,7 +68,8 @@ class Game extends React.Component {
     this.setState({
       gameboard: board,
       clickCount: 0,
-      valueToMatch: 0
+      valueToMatch: 0,
+      gameWon: false
     })
   }
 
@@ -83,6 +94,7 @@ class Game extends React.Component {
             </button>
           )
         })}
+        {this.state.gameWon && <p>YOU WIN!!!</p>}
       </div>
     )
   }
