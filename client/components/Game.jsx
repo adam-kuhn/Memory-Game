@@ -1,6 +1,7 @@
 import React from 'react'
 
 import StartGame from './StartGame'
+import displayWin from '../lib/displayWin'
 
 class Game extends React.Component {
   constructor () {
@@ -94,7 +95,7 @@ class Game extends React.Component {
             </button>
           )
         })}
-        {this.state.gameWon && <p>YOU WIN!!!</p>}
+        {this.state.gameWon && displayWin()}
       </div>
     )
   }
