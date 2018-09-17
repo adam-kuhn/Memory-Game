@@ -9,6 +9,10 @@ class StartGame extends React.Component {
     this.handleClick = this.handleClick.bind(this)
   }
   handleClick () {
+    for (let card of gameboard) {
+      card.visible = false
+      card.matched = false
+    }
     const randomizedBoard = _.shuffle(gameboard)
     this.props.startGame(randomizedBoard)
   }
