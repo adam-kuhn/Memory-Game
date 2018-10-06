@@ -16,6 +16,7 @@ class Game extends React.Component {
     this.startGame = this.startGame.bind(this)
   }
   handleClick (e) {
+    this.props.handleScore()
     const {id, value} = e.target
     const currentClick = this.state.clickCount + 1
     let gameboard = this.state.gameboard

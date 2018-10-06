@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Counter = () => {
+const Counter = (props) => {
   return (
-    <p>Score: 0</p>
+    <p>Score: {props.count}</p>
   )
 }
 
