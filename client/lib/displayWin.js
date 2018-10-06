@@ -1,10 +1,10 @@
 import swal from 'sweetalert2'
 
-const displayWin = () => {
+const displayWin = (score) => {
   swal({
     type: 'success',
     title: 'YOU WIN!',
-    text: 'Well done! You have a superb memory.'
+    text: `Well done! It took you ${score} clicks to match them all.`
   })
 }
 

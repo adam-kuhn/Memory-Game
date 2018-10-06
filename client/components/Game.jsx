@@ -97,7 +97,7 @@ class Game extends React.Component {
             </button>
           )
         })}
-        {this.state.gameWon && displayWin()}
+        {this.state.gameWon && displayWin(this.props.count)}
       </div>
     )
   }

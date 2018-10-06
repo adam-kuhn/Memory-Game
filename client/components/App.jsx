@@ -25,7 +25,7 @@ class App extends React.Component {
       <div>
         <h2>Memory Game</h2>
         <Counter count={this.state.count}/>
-        <Game handleScore={this.handleScore}/>
+        <Game handleScore={this.handleScore} count={this.state.count}/>
       </div>
     )
   }
