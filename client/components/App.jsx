@@ -11,8 +11,11 @@ class App extends React.Component {
     }
     this.handleScore = this.handleScore.bind(this)
   }
-  handleScore () {
-    const count = this.state.count + 1
+  handleScore (newGame) {
+    let count = this.state.count + 1
+    if (newGame) {
+      count = 0
+    }
     this.setState({
       count
     })

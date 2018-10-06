@@ -67,6 +67,7 @@ class Game extends React.Component {
   }
 
   startGame (board) {
+    this.props.handleScore(true)
     this.setState({
       gameboard: board,
       clickCount: 0,
