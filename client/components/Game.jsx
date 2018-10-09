@@ -16,6 +16,7 @@ class Game extends React.Component {
     this.startGame = this.startGame.bind(this)
   }
   handleClick (e) {
+    this.props.handleScore()
     const {id, value} = e.target
     const currentClick = this.state.clickCount + 1
     let gameboard = this.state.gameboard
@@ -66,6 +67,7 @@ class Game extends React.Component {
   }
 
   startGame (board) {
+    this.props.handleScore(true)
     this.setState({
       gameboard: board,
       clickCount: 0,
@@ -95,7 +97,7 @@ class Game extends React.Component {
             </button>
           )
         })}
-        {this.state.gameWon && displayWin()}
+        {this.state.gameWon && displayWin(this.props.count)}
       </div>
     )
   }
