@@ -78,7 +78,7 @@ class Game extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className='game'>
         <StartGame startGame={this.startGame}/>
         {this.state.gameboard.map(box => {
           if (box.visible) {
@@ -91,10 +91,13 @@ class Game extends React.Component {
             )
           }
           return (
-            <button key={box.id} id={box.id} value={box.value}
-              className='hidden' onClick={this.handleClick}>
-              Placeholder
-            </button>
+            <div key={box.id} >
+              <button key={box.id} id={box.id} value={box.value}
+                className='hidden' onClick={this.handleClick}>
+              </button>
+              <img src='/styles/images/question.png'/>
+            </div>
+
           )
         })}
         {this.state.gameWon && displayWin(this.props.count)}
