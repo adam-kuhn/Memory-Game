@@ -1,3 +1,17 @@
 body {
   background-color: rgb(177, 177, 218);
 }
+
+img {
+  width: 2rem;
+  height: 2rem;
+}
+
+.game {
+  display: flex; 
+}
+
+.hidden {
+  background-image: '/styles/images/question.png';
+  height: 2rem;
+}
