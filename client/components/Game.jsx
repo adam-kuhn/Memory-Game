@@ -84,8 +84,7 @@ class Game extends React.Component {
         {this.state.gameboard.map(box => {
           if (box.visible) {
             return (
-              <button key={box.id} id={box.id} value={box.value}
-                className='visible' onClick={this.handleClick}
+              <button key={box.id}
                 disabled={true}>
                 Value: {box.value}
               </button>
