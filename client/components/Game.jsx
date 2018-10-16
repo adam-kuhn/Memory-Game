@@ -84,10 +84,9 @@ class Game extends React.Component {
         {this.state.gameboard.map(box => {
           if (box.visible) {
             return (
-              <button key={box.id}
-                disabled={true}>
-                Value: {box.value}
-              </button>
+              <div key={box.id}>
+                <img src={box.img} />
+              </div>
             )
           }
           return (
