@@ -17,7 +17,8 @@ class Game extends React.Component {
   }
   handleClick (e) {
     this.props.handleScore()
-    const {id, value} = e.target
+    const value = e.target.getAttribute('data-value')
+    const {id} = e.target
     const currentClick = this.state.clickCount + 1
     let gameboard = this.state.gameboard
     if (currentClick === 1) {
@@ -91,11 +92,9 @@ class Game extends React.Component {
             )
           }
           return (
-            <div key={box.id} >
-              <button key={box.id} id={box.id} value={box.value}
-                className='hidden' onClick={this.handleClick}>
-              </button>
-              <img src='/styles/images/question.png'/>
+            <div key={box.id}>
+              <img src='/styles/images/question.png' id={box.id} data-value={box.value}
+                className='hidden' onClick={this.handleClick}/>
             </div>
 
           )
