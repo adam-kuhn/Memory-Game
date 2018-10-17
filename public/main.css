@@ -3,15 +3,10 @@ body {
 }
 
 img {
-  width: 2rem;
-  height: 2rem;
+  width: 5rem;
+  height: 5rem;
 }
 
 .game {
   display: flex; 
-}
-
-.hidden {
-  background-image: '/styles/images/question.png';
-  height: 2rem;
 }
