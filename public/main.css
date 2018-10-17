@@ -10,3 +10,11 @@ img {
 .game {
   display: flex; 
 }
+
+.game-board {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+
