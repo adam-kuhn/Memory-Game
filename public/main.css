@@ -3,15 +3,19 @@ body {
 }
 
 img {
-  width: 2rem;
-  height: 2rem;
+  width: 5rem;
+  height: 5rem;
+  padding: 1rem;
 }
 
 .game {
   display: flex; 
 }
 
-.hidden {
-  background-image: '/styles/images/question.png';
-  height: 2rem;
+.game-board {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 35rem;
+  justify-content: space-between;
 }
+
