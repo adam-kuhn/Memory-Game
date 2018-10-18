@@ -5,6 +5,7 @@ body {
 img {
   width: 5rem;
   height: 5rem;
+  padding: 1rem;
 }
 
 .game {
@@ -14,7 +15,7 @@ img {
 .game-board {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
+  max-width: 35rem;
   justify-content: space-between;
 }
 
