@@ -81,17 +81,15 @@ class Game extends React.Component {
     return (
       <div className='game-container'>
         <StartGame startGame={this.startGame}/>
-        <div className='game'>
-          <div className='game-board'>
-            {this.state.gameboard.map(box => {
-              return (
-                box.visible ? <img key={box.id} src={box.img} />
-                  : <img key={box.id} src='/styles/images/question.png'
-                    id={box.id} data-value={box.value}
-                    className='hidden' onClick={this.handleClick}/>
-              )
-            })}
-          </div>
+        <div className='game-board'>
+          {this.state.gameboard.map(box => {
+            return (
+              box.visible ? <img key={box.id} src={box.img} />
+                : <img key={box.id} src='/styles/images/question.png'
+                  id={box.id} data-value={box.value}
+                  className='hidden' onClick={this.handleClick}/>
+            )
+          })}
           {this.state.gameWon && displayWin(this.props.count)}
         </div>
       </div>
