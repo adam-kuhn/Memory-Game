@@ -79,7 +79,7 @@ class Game extends React.Component {
 
   render () {
     return (
-      <div className='game'>
+      <div className='game-container'>
         <StartGame startGame={this.startGame}/>
         <div className='game-board'>
           {this.state.gameboard.map(box => {
@@ -90,8 +90,8 @@ class Game extends React.Component {
                   className='hidden' onClick={this.handleClick}/>
             )
           })}
+          {this.state.gameWon && displayWin(this.props.count)}
         </div>
-        {this.state.gameWon && displayWin(this.props.count)}
       </div>
     )
   }

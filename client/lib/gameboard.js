@@ -67,5 +67,19 @@ export default [{
   visible: false,
   matched: false,
   img: '/styles/images/virus.jpg'
+},
+{
+  id: 11,
+  value: 6,
+  visible: false,
+  matched: false,
+  img: '/styles/images/mind-smoke.jpg'
+},
+{
+  id: 12,
+  value: 6,
+  visible: false,
+  matched: false,
+  img: '/styles/images/mind-smoke.jpg'
 }
 ]
