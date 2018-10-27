@@ -79,7 +79,7 @@ class Game extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className='game-container'>
         <StartGame startGame={this.startGame}/>
         <div className='game'>
           <div className='game-board'>
